@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Pilar Vazquez</title>
+  <meta name="description" content="Get in touch with film composer Pilar Vazquez for scoring inquiries." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="nav-brand">Pilar Vazquez</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <section style="padding-top: var(--space-lg);">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Get in Touch</span>
+          <h1>Contact</h1>
+          <p>For scoring inquiries, collaborations, or general questions —
+             reach out below or through email directly.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div>
+            <form id="contact-form" action="#" method="POST">
+              <div>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="align-self: flex-start;">Send Message</button>
+              <p id="form-status" class="form-note" style="display:none;"></p>
+            </form>
+            <p class="form-note">
+              This form isn't wired up to a backend yet. See the README for
+              two-minute instructions to connect it with Formspree or Netlify Forms
+              once the site is hosted.
+            </p>
+          </div>
+
+          <div>
+            <h3>Direct</h3>
+            <span class="eyebrow" style="display:block; margin-bottom:0.4rem;">Email</span>
+            <p><a href="mailto:pilarvazquezforti@gmail.com">pilarvazquezforti@gmail.com</a></p>
+
+            <h3>Elsewhere</h3>
+            <div class="social-links">
+              <a href="https://www.instagram.com/pipavazquez/" target="_blank" rel="noopener">Instagram</a>
+              <a href="#" target="_blank" rel="noopener">SoundCloud</a>
+              <a href="https://www.linkedin.com/in/pilar-vazquez-798131426" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+            <p style="margin-top: var(--space-sm); color: var(--color-ink-soft); font-family: var(--font-ui); font-size: 0.85rem;">
+              <em></em>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      &copy; 2026 Pilar Vazquez. All rights reserved. <em></em>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

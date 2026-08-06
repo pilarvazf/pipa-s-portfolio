@@ -1,0 +1,8 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Old backup copies (safe to ignore)
+_to_delete/
+*.bak
+*.bak.*
