@@ -380,6 +380,8 @@ section {
   height: 220px;
   border-radius: 50%;
   background: linear-gradient(135deg, #ececec, #d4d4d4);
+  background-size: cover;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -405,7 +407,7 @@ section {
 }
 
 .home-intro p {
-  text-align: left;
+  text-align: center;
   margin: var(--space-sm) 0 var(--space-md);
 }
 

@@ -15,19 +15,47 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Placeholder handler for the contact form so it doesn't try to submit
-  // anywhere until it's wired up to a real form backend (see README).
+  // Submits the contact form to Formspree via AJAX so the visitor stays on
+  // the page and sees an inline confirmation instead of being redirected.
   var form = document.querySelector('#contact-form');
   if (form) {
     form.addEventListener('submit', function (e) {
-      if (form.getAttribute('action') === '#') {
-        e.preventDefault();
-        var note = document.querySelector('#form-status');
+      e.preventDefault();
+      var note = document.querySelector('#form-status');
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var data = new FormData(form);
+
+      if (submitBtn) submitBtn.disabled = true;
+
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(function (response) {
+        if (response.ok) {
+          form.reset();
+          if (note) {
+            note.textContent = 'Thanks — your message has been sent!';
+            note.style.display = 'block';
+          }
+        } else {
+          return response.json().then(function (result) {
+            var message = (result && result.errors)
+              ? result.errors.map(function (err) { return err.message; }).join(', ')
+              : 'Something went wrong sending your message. Please try again or email directly.';
+            throw new Error(message);
+          });
+        }
+      }).catch(function (err) {
         if (note) {
-          note.textContent = 'This form isn\'t connected yet — see the README for how to hook it up to Formspree or Netlify Forms.';
+          note.textContent = err && err.message
+            ? err.message
+            : 'Something went wrong sending your message. Please try again or email directly.';
           note.style.display = 'block';
         }
-      }
+      }).finally(function () {
+        if (submitBtn) submitBtn.disabled = false;
+      });
     });
   }
 
